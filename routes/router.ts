@@ -1,10 +1,39 @@
 import {Router, Request, Response} from 'express';
 import { GraficaData } from '../classes/grafica';
 import Server from '../classes/server';
-import { usuariosConectados } from '../sockets/socket';
+import { mapa, usuariosConectados } from '../sockets/socket';
 
 const router = Router();
 
+
+//MAPA
+
+router.get('/mapa', (req: Request, res: Response) => {
+
+  res.json(
+    mapa.getMarcadores()
+  );
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//ESTO ES PARA LAS GRAFICAS Y ALGUNAS COSAS DEL CHAT
 const grafica = new GraficaData();
 
 router.get('/grafica', (req: Request, res: Response) => {
